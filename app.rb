@@ -14,7 +14,7 @@ class RecipeBook < Sinatra::Base
   end
 
   post '/recipes/add' do
-    erb :'recipes/index'
+    Recipe.create(params['url'])
     redirect '/recipes'
   end
 
