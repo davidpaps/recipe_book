@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'sinatra/base'
+require './lib/recipe'
 
 class RecipeBook < Sinatra::Base
   get '/' do
@@ -8,7 +9,7 @@ class RecipeBook < Sinatra::Base
   end
 
   get '/recipes' do
-    @recipes = ["Pizza", "Pasta", "Cake"]
+    @recipes = Recipe.all
     erb :'recipes/index'
   end
 
