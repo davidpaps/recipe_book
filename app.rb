@@ -5,7 +5,7 @@ require './lib/recipe'
 
 class RecipeBook < Sinatra::Base
   get '/' do
-    'Recipe Book'
+    erb :'index'
   end
 
   get '/recipes' do
