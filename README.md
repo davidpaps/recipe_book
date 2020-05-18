@@ -17,6 +17,12 @@ I want to be able to see a list of my recipies
 ```
 
 ```
+As a time-pressed user
+So that I can save a website
+I would like to add the site's address and title to bookmark manager
+```
+
+```
 As a user
 So that I can make improvements to my cooking
 I want to be able to update my existing recipes
