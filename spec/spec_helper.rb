@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-ENV['RACK_ENV'] = 'test'
+ENV['ENVIRONMENT'] = 'test'
 
 require_relative '../app.rb'
 
