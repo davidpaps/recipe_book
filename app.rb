@@ -8,9 +8,9 @@ class RecipeBook < Sinatra::Base
   end
 
   get '/recipes' do
-    recipes = ["Pizza", "Pasta", "Cake"]
-    recipes.join
+    @recipes = ["Pizza", "Pasta", "Cake"]
+    erb :'recipes/index'
   end
-  
+
   run! if app_file == $PROGRAM_NAME
 end
