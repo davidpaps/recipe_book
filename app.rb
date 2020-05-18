@@ -13,6 +13,11 @@ class RecipeBook < Sinatra::Base
     erb :'recipes/index'
   end
 
+  post '/recipes/add' do
+    erb :'recipes/index'
+    redirect '/recipes'
+  end
+
   run! if app_file == $PROGRAM_NAME
 end
 
