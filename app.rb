@@ -7,5 +7,10 @@ class RecipeBook < Sinatra::Base
     'Recipe Book'
   end
 
+  get '/recipes' do
+    recipes = ["Pizza", "Pasta", "Cake"]
+    recipes.join
+  end
+  
   run! if app_file == $PROGRAM_NAME
 end
