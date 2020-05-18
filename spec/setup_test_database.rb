@@ -1,3 +1,8 @@
 require 'pg'
 
-p "Setting up the test database"
+p "Setting up the Test Database...!"
+
+def setup_test_database
+  connection = PG.connect(dbname: 'recipebooktest')
+  connection.exec("TRUNCATE recipes")
+end
