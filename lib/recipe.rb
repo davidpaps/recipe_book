@@ -28,7 +28,8 @@ class Recipe
     connection = PG.connect(dbname: 'recipebook')
     end
 
-  connection.exec("INSERT INTO recipes (url, title) VALUES('#{url}', '#{title}') RETURNING id, url, title")
+  result = connection.exec("INSERT INTO recipes (url, title) VALUES('#{url}', '#{title}') RETURNING id, url, title")
+  self.new(result[0]['id'], result[0]['title'], result[0]['url'])
 
   end
 
