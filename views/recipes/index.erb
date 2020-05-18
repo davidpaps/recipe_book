@@ -1,5 +1,7 @@
 <ul>
 <% @recipes.each do |recipe| %>
-<li><%= recipe %></li>
-<% end %>
+ <a href="<%= recipe.url %>" >
+<li><%= recipe.title %> </li>
+ <% end %>
 </ul>
+
