@@ -15,4 +15,12 @@ describe DatabaseConnection do
     end
   end
 
+  describe '.query' do
+    it 'executes a query via pg' do
+      connection = DatabaseConnection.setup('recipebooktest')
+      expect(connection).to receive(:exec).with("SELECT * FROM recipes;")
+
+      DatabaseConnection.query("SELECT * FROM recipes;")
+    end
+  end
 end

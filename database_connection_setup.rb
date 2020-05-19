@@ -1,7 +1,7 @@
 require './lib/database_connection'
 
 if ENV['ENVIRONMENT'] == 'test'
-  PG.connect(dbname: 'recipebooktest')
+  DatabaseConnection.setup('recipebooktest')
 else
-  PG.connect(dbname: 'recipebook')
+  DatabaseConnection.setup('recipebook')
 end
