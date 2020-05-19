@@ -35,9 +35,9 @@ class Recipe
 
   def self.update(id, url, title)
     connection = if ENV['ENVIRONMENT'] == 'test'
-      PG.connect(dbname: 'recipebooktest')
-    else
-      PG.connect(dbname: 'recipebook')
+                   PG.connect(dbname: 'recipebooktest')
+                 else
+                   PG.connect(dbname: 'recipebook')
     end
 
     result = connection.exec("UPDATE recipes SET url= '#{url}', title= '#{title}' WHERE id= '#{id}'")
@@ -45,9 +45,9 @@ class Recipe
 
   def self.delete(id)
     connection = if ENV['ENVIRONMENT'] == 'test'
-      PG.connect(dbname: 'recipebooktest')
-    else
-      PG.connect(dbname: 'recipebook')
+                   PG.connect(dbname: 'recipebooktest')
+                 else
+                   PG.connect(dbname: 'recipebook')
     end
 
     result = connection.exec("DELETE FROM recipes WHERE id = '#{id}'")

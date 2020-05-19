@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'web_helper'
 
 feature 'viewing recipes' do

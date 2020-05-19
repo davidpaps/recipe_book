@@ -4,7 +4,6 @@ require 'sinatra/base'
 require './lib/recipe'
 
 class RecipeBook < Sinatra::Base
-
   use Rack::MethodOverride
 
   get '/' do
@@ -35,7 +34,6 @@ class RecipeBook < Sinatra::Base
     Recipe.update(params[:id], params[:url], params[:title])
     redirect '/recipes'
   end
-
 
   run! if app_file == $PROGRAM_NAME
 end

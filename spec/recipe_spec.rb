@@ -5,7 +5,6 @@ require 'database_helpers'
 require 'web_helper'
 
 describe Recipe do
-
   before(:each) do
     add_recipes
   end
@@ -35,10 +34,10 @@ describe Recipe do
   describe '.update' do
     it 'updates an existing recipe' do
       recipes = Recipe.all
-      Recipe.update(recipes[0].id, 'https://www.bbc.co.uk/food/recipes/pizzadoughbase_70980', "Pizza Dough")
+      Recipe.update(recipes[0].id, 'https://www.bbc.co.uk/food/recipes/pizzadoughbase_70980', 'Pizza Dough')
       new_recipes = Recipe.all
-      expect(new_recipes[-1].title).to eq("Pizza Dough")
-      expect(new_recipes[-1].url).to eq("https://www.bbc.co.uk/food/recipes/pizzadoughbase_70980")
+      expect(new_recipes[-1].title).to eq('Pizza Dough')
+      expect(new_recipes[-1].url).to eq('https://www.bbc.co.uk/food/recipes/pizzadoughbase_70980')
     end
   end
 
@@ -48,8 +47,8 @@ describe Recipe do
       Recipe.delete(recipes[0].id)
       new_recipes = Recipe.all
       expect(new_recipes.length).to eq(2)
-      expect(new_recipes[0].title).to eq("Pasta")
-      expect(new_recipes[1].title).to eq("Cake")
+      expect(new_recipes[0].title).to eq('Pasta')
+      expect(new_recipes[1].title).to eq('Cake')
     end
   end
 end
