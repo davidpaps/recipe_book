@@ -9,8 +9,7 @@ feature 'viewing recipes' do
 
   scenario 'viewing the recipes' do
     add_recipes
-    visit('/')
-    click_button('View Recipes')
+    view_recipes
     expect(page).to have_link('Pizza', href: 'https://www.bbcgoodfood.com/recipes/pizza-margherita-4-easy-steps')
     expect(page).to have_link('Pasta', href: 'https://www.bbc.co.uk/food/recipes/freshpastadough_3067')
     expect(page).to have_link('Cake', href: 'https://www.bbc.co.uk/food/recipes/easy_chocolate_cake_31070')

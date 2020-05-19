@@ -3,6 +3,9 @@
 <% @recipes.each do |recipe| %>
  <a href="<%= recipe.url %>" >
 <li><%= recipe.title %> </li>
+<form action="/recipes/<%=recipe.id%>/update" method='get'>
+<input type="submit" value="Update" id="update<%= recipe.title %>" />
+</form>
  <% end %>
 </ul>
 
