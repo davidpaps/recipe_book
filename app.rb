@@ -5,7 +5,7 @@ require './lib/recipe'
 
 class RecipeBook < Sinatra::Base
   get '/' do
-    erb :'index'
+    erb :index
   end
 
   get '/recipes' do
@@ -20,6 +20,3 @@ class RecipeBook < Sinatra::Base
 
   run! if app_file == $PROGRAM_NAME
 end
-
-
-
