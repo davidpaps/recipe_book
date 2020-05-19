@@ -26,6 +26,11 @@ class RecipeBook < Sinatra::Base
     erb :'recipes/update'
   end
 
+  delete '/recipes/:id' do
+    Recipe.delete(params[:id])
+    redirect '/recipes'
+  end
+
   patch '/recipes/:id' do
     Recipe.update(params[:id], params[:url], params[:title])
     redirect '/recipes'
