@@ -2,13 +2,12 @@
 
 require 'recipe'
 require 'database_helpers'
+require 'web_helper'
 
 describe Recipe do
 
   before(:each) do
-    Recipe.create('https://www.bbcgoodfood.com/recipes/pizza-margherita-4-easy-steps', 'Pizza')
-    Recipe.create('https://www.bbc.co.uk/food/recipes/freshpastadough_3067', 'Pasta')
-    Recipe.create('https://www.bbc.co.uk/food/recipes/easy_chocolate_cake_31070', 'Cake')
+    add_recipes
   end
 
   describe '.all' do

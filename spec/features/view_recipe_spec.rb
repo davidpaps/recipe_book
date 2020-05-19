@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'web_helper'
 
 feature 'viewing recipes' do
   scenario 'visiting the index page' do
@@ -7,12 +8,8 @@ feature 'viewing recipes' do
   end
 
   scenario 'viewing the recipes' do
-    Recipe.create('https://www.bbcgoodfood.com/recipes/pizza-margherita-4-easy-steps', 'Pizza')
-    Recipe.create('https://www.bbc.co.uk/food/recipes/freshpastadough_3067', 'Pasta')
-    Recipe.create('https://www.bbc.co.uk/food/recipes/easy_chocolate_cake_31070', 'Cake')
-
+    add_recipes
     visit('/')
-
     click_button('View Recipes')
     expect(page).to have_link('Pizza', href: 'https://www.bbcgoodfood.com/recipes/pizza-margherita-4-easy-steps')
     expect(page).to have_link('Pasta', href: 'https://www.bbc.co.uk/food/recipes/freshpastadough_3067')
