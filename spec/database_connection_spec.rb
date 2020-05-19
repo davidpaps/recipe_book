@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'database_connection'
 
 describe DatabaseConnection do
@@ -18,9 +20,9 @@ describe DatabaseConnection do
   describe '.query' do
     it 'executes a query via pg' do
       connection = DatabaseConnection.setup('recipebooktest')
-      expect(connection).to receive(:exec).with("SELECT * FROM recipes;")
+      expect(connection).to receive(:exec).with('SELECT * FROM recipes;')
 
-      DatabaseConnection.query("SELECT * FROM recipes;")
+      DatabaseConnection.query('SELECT * FROM recipes;')
     end
   end
 end

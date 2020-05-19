@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'pg'
-require 'database_connection'
+require_relative 'database_connection'
 
 class Recipe
   attr_reader :id, :title, :url
