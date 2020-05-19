@@ -2,6 +2,7 @@
 
 require 'sinatra/base'
 require './lib/recipe'
+require './database_connection_setup'
 
 class RecipeBook < Sinatra::Base
   use Rack::MethodOverride
