@@ -6,6 +6,11 @@ describe DatabaseConnection do
       expect(PG).to receive(:connect).with(dbname: 'recipebooktest')
       DatabaseConnection.setup('recipebooktest')
     end
+
+    it 'has a persistant connection' do
+      connection = DatabaseConnection.setup('recipebooktest')
+      expect(DatabaseConnection.connection).to eq(connection)
+    end
     
   end
 end
