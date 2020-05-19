@@ -51,4 +51,16 @@ describe Recipe do
       expect(new_recipes[1].title).to eq('Cake')
     end
   end
+
+  describe '.find' do
+    it 'returns the requested recipe object' do
+      recipe = Recipe.create('https://www.bbcgoodfood.com/recipes/classic-pesto', 'Classic Pesto')
+      result = Recipe.find(recipe.id)
+
+      expect(result).to be_a(Recipe)
+      expect(result.id).to eq(recipe.id)
+      expect(result.title).to eq('Classic Pesto')
+      expect(result.url).to eq('https://www.bbcgoodfood.com/recipes/classic-pesto')
+    end
+  end
 end

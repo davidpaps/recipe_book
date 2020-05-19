@@ -52,4 +52,15 @@ class Recipe
 
     result = connection.exec("DELETE FROM recipes WHERE id = '#{id}'")
   end
+
+  def self.find(id)
+    connection = if ENV['ENVIRONMENT'] == 'test'
+      PG.connect(dbname: 'recipebooktest')
+    else
+      PG.connect(dbname: 'recipebook')
+end
+result = connection.exec("SELECT * FROM recipes WHERE id = #{id};")
+new(result[0]['id'], result[0]['title'], result[0]['url'])
+
+  end
 end

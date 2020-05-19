@@ -21,7 +21,7 @@ class RecipeBook < Sinatra::Base
   end
 
   get '/recipes/:id/update' do
-    @recipe_id = params[:id]
+    @recipe = Recipe.find(params[:id])
     erb :'recipes/update'
   end
 
