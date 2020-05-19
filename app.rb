@@ -4,6 +4,9 @@ require 'sinatra/base'
 require './lib/recipe'
 
 class RecipeBook < Sinatra::Base
+
+  use Rack::MethodOverride
+
   get '/' do
     erb :index
   end
@@ -23,7 +26,7 @@ class RecipeBook < Sinatra::Base
     erb :'recipes/update'
   end
 
-  post '/recipes/:id' do
+  patch '/recipes/:id' do
     Recipe.update(params[:id], params[:url], params[:title])
     redirect '/recipes'
   end

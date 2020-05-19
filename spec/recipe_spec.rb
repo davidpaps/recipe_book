@@ -41,4 +41,15 @@ describe Recipe do
       expect(new_recipes[-1].url).to eq("https://www.bbc.co.uk/food/recipes/pizzadoughbase_70980")
     end
   end
+
+  describe '.delete' do
+    it 'deletes an existing recipe' do
+      recipes = Recipe.all
+      Recipe.delete(recipes[0].id)
+      new_recipes = Recipe.all
+      expect(new_recipes.length).to eq(2)
+      expect(new_recipes[0].title).to eq("Pasta")
+      expect(new_recipes[1].title).to eq("Cake")
+    end
+  end
 end

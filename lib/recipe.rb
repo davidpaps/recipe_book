@@ -42,4 +42,14 @@ class Recipe
 
     result = connection.exec("UPDATE recipes SET url= '#{url}', title= '#{title}' WHERE id= '#{id}'")
   end
+
+  def self.delete(id)
+    connection = if ENV['ENVIRONMENT'] == 'test'
+      PG.connect(dbname: 'recipebooktest')
+    else
+      PG.connect(dbname: 'recipebook')
+    end
+
+    result = connection.exec("DELETE FROM recipes WHERE id = '#{id}'")
+  end
 end
