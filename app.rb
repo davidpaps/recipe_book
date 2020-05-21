@@ -3,21 +3,31 @@
 require 'sinatra/base'
 require './lib/recipe'
 require './database_connection_setup'
+require 'sinatra/flash'
+require 'uri'
 
 class RecipeBook < Sinatra::Base
   use Rack::MethodOverride
+
+  enable :sessions
+  register Sinatra::Flash
 
   get '/' do
     erb :index
   end
 
   get '/recipes' do
+    flash[:alert] = "Recipe Added!"
     @recipes = Recipe.all
     erb :'recipes/index'
   end
 
   post '/recipes/add' do
-    Recipe.create(params[:url], params[:title])
+    if params[:url] =~ /\A#{URI::regexp(['http', 'https'])}\z/
+       Recipe.create(params[:url], params[:title])
+    else
+      flash[:notice] = "You Must Submit a Valid URL!"
+    end
     redirect '/recipes'
   end
 

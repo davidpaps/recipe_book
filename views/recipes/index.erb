@@ -1,4 +1,13 @@
 <h1>Recipes</h1>
+
+<% flash.keys.each do |type| %>
+  <div data-alert class="flash <%= type %> alert-box radius">
+    <%= flash[type] %>
+    <a href="#" class="close">&times;</a>
+  </div>
+<% end %>
+
+
 <ul>
 <% @recipes.each do |recipe| %>
  <a href="<%= recipe.url %>" >
