@@ -3,6 +3,7 @@
 require 'sinatra/base'
 require './lib/recipe'
 require './lib/comment'
+require './lib/user'
 require './database_connection_setup'
 require 'sinatra/flash'
 
