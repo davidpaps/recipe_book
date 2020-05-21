@@ -23,6 +23,14 @@
         <input type='hidden' name='_method' value='DELETE'/>
         <input type="submit" value="Delete" id="delete<%= recipe.title %>" />
       </form>
+      <form action="/recipes/<%= recipe.id %>/comments/new" method="get">
+        <input type="submit" value="Add Comment" id="comment<%= recipe.title %>"/>
+      </form>
+      <ul>
+      <% recipe.comments.each do |comment| %>
+        <li><%= comment.description %></li>
+        </ul>
+      <% end %>
  <% end %>
 </ul>
 

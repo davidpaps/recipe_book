@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'recipe'
-require 'database_helpers'
 require 'web_helper'
 
 describe Recipe do
@@ -22,8 +21,6 @@ describe Recipe do
   describe '.create' do
     it 'creates a newrecipe' do
       recipe = Recipe.create('https://www.bbcgoodfood.com/recipes/classic-pesto', 'Classic Pesto')
-      persisted_data = persisted_data(recipe.id)
-      expect(recipe.id).to eq(persisted_data['id'])
       expect(recipe).to be_a(Recipe)
       expect(recipe.url).to eq('https://www.bbcgoodfood.com/recipes/classic-pesto')
       expect(recipe.title).to eq('Classic Pesto')
@@ -66,6 +63,19 @@ describe Recipe do
       expect(result.id).to eq(recipe.id)
       expect(result.title).to eq('Classic Pesto')
       expect(result.url).to eq('https://www.bbcgoodfood.com/recipes/classic-pesto')
+    end
+  end
+
+
+  describe '#comments' do
+
+  let(:comment_class) { double(:comment_class) }
+
+    it 'returns a list of comments on the bookmark' do
+      recipe = Recipe.all
+     expect(comment_class).to receive(:where).with(recipe[0].id)
+      
+     recipe[0].comments(comment_class)
     end
   end
 end
