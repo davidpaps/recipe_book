@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'bcrypt'
 require_relative 'database_connection'
 
 class User
@@ -11,12 +12,14 @@ class User
   end
 
   def self.create(email, password)
-    result = DatabaseConnection.query("INSERT INTO users (email, password) VALUES('#{email}', '#{password}') RETURNING id, email;")
+    encrypted_password = BCrypt::Password.create(password)
+    result = DatabaseConnection.query("INSERT INTO users (email, password) VALUES('#{email}', '#{encrypted_password}') RETURNING id, email;")
     new(result[0]['id'], result[0]['email'])
   end
 
   def self.find(id)
     return nil unless id
+
     result = DatabaseConnection.query("SELECT * FROM users WHERE id = '#{id}'")
     new(result[0]['id'], result[0]['email'])
   end

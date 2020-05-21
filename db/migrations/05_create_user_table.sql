@@ -1,1 +1,3 @@
-CREATE TABLE users(id SERIAL PRIMARY KEY, email VARCHAR(50), password VARCHAR(50));
+CREATE TABLE users(id SERIAL PRIMARY KEY, email VARCHAR(50), password VARCHAR(60));
+
+ALTER TABLE users ALTER COLUMN password TYPE varchar(60);
