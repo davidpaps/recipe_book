@@ -1,4 +1,9 @@
 <h1>Recipes</h1>
+
+<% if @user %>
+  <h1>Welcome, <%= @user.email %></h1>
+<% end %>
+
 <form action="/" method="get">
 <input type="submit" value="Return to Homepage" />
 </form>

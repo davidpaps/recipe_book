@@ -1,8 +1,8 @@
-require 'pg'
+# frozen_string_literal: true
+
 require_relative 'database_connection'
 
 class Comment
-
   attr_reader :id, :description, :recipe_id
 
   def initialize(id, description, recipe_id)

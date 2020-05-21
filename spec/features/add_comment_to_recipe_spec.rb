@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'web_helper'
 
 feature 'adding and viewing comments on recipes' do
@@ -7,6 +9,6 @@ feature 'adding and viewing comments on recipes' do
     find('#commentPizza').click
     fill_in 'comment', with: 'This is a comment'
     click_button 'Submit Comment'
-    expect(page).to have_content("This is a comment")
+    expect(page).to have_content('This is a comment')
   end
 end

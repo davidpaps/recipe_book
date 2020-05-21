@@ -26,7 +26,7 @@ describe Recipe do
       expect(recipe.title).to eq('Classic Pesto')
     end
 
-    it "does not create a recipe uness there is a vlaid URL" do
+    it 'does not create a recipe uness there is a vlaid URL' do
       Recipe.create('this is the url', 'No Recipe')
       recipes = Recipe.all
       expect(recipes[-1].url).to eq('https://www.bbc.co.uk/food/recipes/easy_chocolate_cake_31070')
@@ -66,16 +66,14 @@ describe Recipe do
     end
   end
 
-
   describe '#comments' do
-
-  let(:comment_class) { double(:comment_class) }
+    let(:comment_class) { double(:comment_class) }
 
     it 'returns a list of comments on the bookmark' do
       recipe = Recipe.all
-     expect(comment_class).to receive(:where).with(recipe[0].id)
-      
-     recipe[0].comments(comment_class)
+      expect(comment_class).to receive(:where).with(recipe[0].id)
+
+      recipe[0].comments(comment_class)
     end
   end
 end

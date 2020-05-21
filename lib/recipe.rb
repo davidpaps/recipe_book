@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'pg'
 require_relative 'database_connection'
 require_relative 'comment'
 require 'uri'
@@ -21,6 +20,7 @@ class Recipe
 
   def self.create(url, title)
     return false unless is_url?(url)
+
     result = DatabaseConnection.query("INSERT INTO recipes (url, title) VALUES('#{url}', '#{title}') RETURNING id, url, title")
     new(result[0]['id'], result[0]['title'], result[0]['url'])
   end
@@ -42,9 +42,7 @@ class Recipe
     comment_class.where(id)
   end
 
-  private
-
   def self.is_url?(url)
-    url =~ /\A#{URI::regexp(['http', 'https'])}\z/
+    url =~ /\A#{URI::DEFAULT_PARSER.make_regexp(%w[http https])}\z/
   end
 end

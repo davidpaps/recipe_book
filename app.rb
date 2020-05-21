@@ -17,13 +17,16 @@ class RecipeBook < Sinatra::Base
   end
 
   get '/recipes' do
+    @user = User.find(session[:user_id])
     @recipes = Recipe.all
     erb :'recipes/index'
   end
 
   post '/recipes/add' do
-    flash[:notice] = "You Must Submit a Valid URL!" unless Recipe.create(params[:url], params[:title])
-    redirect '/recipes'
+    unless Recipe.create(params[:url], params[:title])
+      flash[:notice] = 'You Must Submit a Valid URL!'
+    end
+    redirect('/recipes')
   end
 
   get '/recipes/:id/update' do
@@ -33,12 +36,12 @@ class RecipeBook < Sinatra::Base
 
   delete '/recipes/:id' do
     Recipe.delete(params[:id])
-    redirect '/recipes'
+    redirect('/recipes')
   end
 
   patch '/recipes/:id' do
     Recipe.update(params[:id], params[:url], params[:title])
-    redirect '/recipes'
+    redirect('/recipes')
   end
 
   get '/recipes/:id/comments/new' do
@@ -48,8 +51,18 @@ class RecipeBook < Sinatra::Base
 
   post '/recipes/:id/comments' do
     Comment.create(params[:comment], params[:id])
-    redirect '/recipes'
+    redirect('/recipes')
   end
-  
+
+  get '/users/new' do
+    erb :'users/new'
+  end
+
+  post '/users' do
+    user = User.create(params[:email], params[:password])
+    session[:user_id] = user.id
+    redirect('/recipes')
+  end
+
   run! if app_file == $PROGRAM_NAME
 end
