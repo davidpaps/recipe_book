@@ -1,7 +1,5 @@
-<h1>Recipes</h1>
-
 <% if @user %>
-  <h1>Welcome, <%= @user.email %></h1>
+  <h1>Welcome <%= @user.email %>!</h1>
 <% end %>
 
 <form action="/" method="get">
@@ -24,18 +22,18 @@
     <li><%= comment.description %></li>
     <% end %>
     </ul>
+    <form action="/recipes/<%= recipe.id %>/comments/new" method="get">
+      <input type="submit" value="Add a Comment" id="comment<%= recipe.title %>"/>
+    </form>   
+
     <form action="/recipes/<%=recipe.id%>/update" method='get'>
-        <input type="submit" value="Update" id="update<%= recipe.title %>" />
+        <input type="submit" value="Update <%=recipe.title%>" id="update<%= recipe.title %>" />
     </form>
 
     <form action="/recipes/<%= recipe.id %>" method="post">
       <input type='hidden' name='_method' value='DELETE'/>
-      <input type="submit" value="Delete" id="delete<%= recipe.title %>" />
-    </form>
-
-    <form action="/recipes/<%= recipe.id %>/comments/new" method="get">
-      <input type="submit" value="Add Comment" id="comment<%= recipe.title %>"/>
-    </form>    
+      <input type="submit" value="Delete <%=recipe.title%>" id="delete<%= recipe.title %>" />
+    </form>   
 <% end %>
 
 
