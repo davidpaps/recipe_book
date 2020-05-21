@@ -17,7 +17,6 @@ class RecipeBook < Sinatra::Base
   end
 
   get '/recipes' do
-    flash[:alert] = "Recipe Added!"
     @recipes = Recipe.all
     erb :'recipes/index'
   end

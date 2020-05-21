@@ -23,11 +23,16 @@ describe Recipe do
     it 'creates a newrecipe' do
       recipe = Recipe.create('https://www.bbcgoodfood.com/recipes/classic-pesto', 'Classic Pesto')
       persisted_data = persisted_data(recipe.id)
-
       expect(recipe.id).to eq(persisted_data['id'])
       expect(recipe).to be_a(Recipe)
       expect(recipe.url).to eq('https://www.bbcgoodfood.com/recipes/classic-pesto')
       expect(recipe.title).to eq('Classic Pesto')
+    end
+
+    it "does not create a recipe uness there is a vlaid URL" do
+      Recipe.create('this is the url', 'No Recipe')
+      recipes = Recipe.all
+      expect(recipes[-1].url).to eq('https://www.bbc.co.uk/food/recipes/easy_chocolate_cake_31070')
     end
   end
 
