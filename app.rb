@@ -37,11 +37,13 @@ class RecipeBook < Sinatra::Base
 
   delete '/recipes/:id' do
     Recipe.delete(params[:id])
+    flash[:notice] = 'Recipe Deleted!'
     redirect('/recipes')
   end
 
   patch '/recipes/:id' do
     Recipe.update(params[:id], params[:url], params[:title])
+    flash[:notice] = 'Recipe Updated!'
     redirect('/recipes')
   end
 
@@ -52,6 +54,7 @@ class RecipeBook < Sinatra::Base
 
   post '/recipes/:id/comments' do
     Comment.create(params[:comment], params[:id])
+    flash[:notice] = 'Comment Added!'
     redirect('/recipes')
   end
 
@@ -83,7 +86,7 @@ class RecipeBook < Sinatra::Base
   post '/sessions/destroy' do
     session.clear
     flash[:notice] = 'You have Signed Out!'
-    redirect('/recipes')
+    redirect('/')
   end
 
   run! if app_file == $PROGRAM_NAME

@@ -10,10 +10,6 @@ def add_recipes
   Recipe.create('https://www.bbc.co.uk/food/recipes/easy_chocolate_cake_31070', 'Cake')
 end
 
-def view_recipes
-  visit('/recipes')
-end
-
 def create_user
   User.create('test@test.com', 'password')
 end

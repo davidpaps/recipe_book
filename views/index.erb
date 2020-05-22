@@ -1,21 +1,13 @@
 <h1>Recipe Book</h1>
 
-
 <form action="/users/new" method="GET">
-<h3> Sign up for Recipe Book!</h3>
-<input type='submit' value='Sign Up' />
+  <h3> Sign up for Recipe Book!</h3>
+  <input type='submit' value='Sign Up' />
 </form>
-
 
 <form action="/sessions/new" method="GET">
-<h3> Already have an account - Sign in!</h3>
-<input type='submit' value='Sign In' />
+  <h3> Already have an account - Sign in!</h3>
+  <input type='submit' value='Sign In' />
 </form>
 
-
-
-<form action="/recipes/add" method="POST">
- <input type="text" name="title" placeholder="Enter a Title" />
- <input type="text" name="url" placeholder='Enter a URL'/>
-<input type='submit' value='Add Recipe' />
-</form>
+ <h3><%= flash[:notice] %></h3>

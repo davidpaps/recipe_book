@@ -2,7 +2,7 @@
 
 feature "checking url's" do
   scenario 'recipe must be a valid URL' do
-    visit('/')
+    visit('/recipes')
     fill_in('title', with: 'Gnocchi')
     fill_in('url', with: 'bbcgoodfood com/recipes/roast-mushroom-gnocchi')
     click_button('Add Recipe')

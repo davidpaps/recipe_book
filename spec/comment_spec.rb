@@ -2,11 +2,12 @@
 
 require 'comment'
 require 'recipe'
+require 'web_helper'
 
 describe Comment do
   describe '.comment' do
     it 'creates a new comment' do
-      recipe = Recipe.create('https://www.bbcgoodfood.com/recipes/pesto-pizza-artichokes-prosciutto', 'Pesto Pizza')
+      recipe = add_recipe
       recipes = Recipe.all
       comment = Comment.create('This is a test comment', recipes[0].id)
       comments = Comment.all
@@ -19,7 +20,7 @@ describe Comment do
 
   describe '.where' do
     it 'gets the relevant comments from the databse' do
-      recipe = Recipe.create('http://www.makersacademy.com', 'Makers Academy')
+      recipe = add_recipe
       Comment.create('This is a test comment', recipe.id)
       Comment.create('This is a second test comment', recipe.id)
 
@@ -34,7 +35,7 @@ describe Comment do
 
   describe '.create' do
     it 'adds a new comment to the database' do
-      recipe = Recipe.create('https://www.mobkitchen.co.uk/recipes/halloumi-wrap', 'Haloumi Wrap')
+      recipe = add_recipe
       recipes = Recipe.all
       Comment.create('Test comment', recipes[0].id)
       comments = Comment.all

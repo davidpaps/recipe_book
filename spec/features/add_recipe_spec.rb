@@ -2,7 +2,7 @@
 
 feature 'adding recipes' do
   scenario 'add a recipe on the index page' do
-    visit('/')
+    visit('/recipes')
     fill_in('title', with: 'Classic Pesto')
     fill_in('url', with: 'https://www.bbcgoodfood.com/recipes/classic-pesto')
     click_button('Add Recipe')

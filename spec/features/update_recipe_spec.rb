@@ -5,7 +5,7 @@ require 'web_helper'
 feature 'updating recipes' do
   scenario 'allows a user to update a recipe, then viewable on the index page' do
     add_recipe
-    view_recipes
+    visit('/recipes')
     click_button('Update Classic Pesto')
     fill_in('title', with: 'Pizza')
     fill_in('url', with: 'https://www.bbcgoodfood.com/recipes/pizza-margherita-4-easy-steps')
