@@ -12,6 +12,7 @@ A simple `CRUD` app that lets a user store useful recipe links that they have ac
 - A user can sign in to the app
 - A user can sign up for an account
 - A users crediantals are authenticated on sign in, and password is encrypted
+- A user is shows useful message whenever a recipe is added, deleted, changed or a comment is added
 
 ---
 
@@ -123,6 +124,6 @@ To run the test suite (RSpec and Capybara), in the command line type:
 rspec
 ```
 
-This will display 30 passing tests with 100% coverage. These tests will run on the Test Environment, another `bookmark-manager-test' Database will need to be set up with the same tables in order to run the tests.
+This will display 32 passing tests with 100% coverage. These tests will run on the Test Environment, another `bookmark-manager-test' Database will need to be set up with the same tables in order to run the tests.
 
 ---
