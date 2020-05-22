@@ -11,11 +11,6 @@ class User
     @email = email
   end
 
-  def self.all
-    result = DatabaseConnection.query('SELECT * FROMusers')
-    result.map { |user| new(user['id'], user['email']) }
-  end
-
   def self.create(email, password)
     encrypted_password = BCrypt::Password.create(password)
     result = DatabaseConnection.query("INSERT INTO users (email, password) VALUES('#{email}', '#{encrypted_password}') RETURNING id, email;")

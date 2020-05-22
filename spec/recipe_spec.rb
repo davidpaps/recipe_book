@@ -20,7 +20,7 @@ describe Recipe do
 
   describe '.create' do
     it 'creates a newrecipe' do
-      recipe = Recipe.create('https://www.bbcgoodfood.com/recipes/classic-pesto', 'Classic Pesto')
+      recipe = add_recipe
       expect(recipe).to be_a(Recipe)
       expect(recipe.url).to eq('https://www.bbcgoodfood.com/recipes/classic-pesto')
       expect(recipe.title).to eq('Classic Pesto')

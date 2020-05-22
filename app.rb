@@ -75,7 +75,7 @@ class RecipeBook < Sinatra::Base
       session[:user_id] = user.id
       redirect('/recipes')
     else
-      flash[:notice] = '"Access Denied - Please check your Email/Password!"'
+      flash[:notice] = 'Access Denied - Please check your Email/Password!'
       redirect('/sessions/new')
     end
   end

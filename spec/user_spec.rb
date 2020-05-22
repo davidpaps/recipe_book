@@ -7,7 +7,6 @@ describe User do
   describe '.create' do
     it 'creates a new user' do
       user = create_user
-
       expect(user).to be_a(User)
       expect(user.email).to eq('test@test.com')
     end
@@ -22,7 +21,6 @@ describe User do
     it 'finds a user by id' do
       user = create_user
       result = User.find(user.id)
-
       expect(result.id).to eq(user.id)
       expect(result.email).to eq(user.email)
     end

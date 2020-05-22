@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+def add_recipe
+  Recipe.create('https://www.bbcgoodfood.com/recipes/classic-pesto', 'Classic Pesto')
+end
+
 def add_recipes
   Recipe.create('https://www.bbcgoodfood.com/recipes/pizza-margherita-4-easy-steps', 'Pizza')
   Recipe.create('https://www.bbc.co.uk/food/recipes/freshpastadough_3067', 'Pasta')
