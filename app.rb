@@ -65,6 +65,7 @@ class RecipeBook < Sinatra::Base
   post '/users' do
     user = User.create(params[:email], params[:password])
     session[:user_id] = user.id
+    flash[:notice] = 'Account Sucessfully Created!'
     redirect('/recipes')
   end
 
@@ -76,6 +77,7 @@ class RecipeBook < Sinatra::Base
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:user_id] = user.id
+      flash[:notice] = 'Sign In Sucessfull!'
       redirect('/recipes')
     else
       flash[:notice] = 'Access Denied - Please check your Email/Password!'
