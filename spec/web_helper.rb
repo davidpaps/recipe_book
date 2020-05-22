@@ -10,3 +10,7 @@ def view_recipes
   visit('/')
   click_button('View Recipes')
 end
+
+def create_user
+  User.create('test@test.com', 'password')
+end

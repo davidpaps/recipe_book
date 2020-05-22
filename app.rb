@@ -65,14 +65,19 @@ class RecipeBook < Sinatra::Base
     redirect('/recipes')
   end
 
-  get '/sessions/new'do
+  get '/sessions/new' do
     erb :'sessions/new'
   end
 
   post '/sessions' do
-    user = User.authenticate(result[0][:id], result[0][:email], result[0][:password])
-    session[:user_id] = user.id
-    redirect('/recipes')
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect('/recipes')
+    else
+      flash[:notice] = '"Access Denied - Please check your Email/Password!"'
+      redirect('/sessions/new')
+    end
   end
 
   run! if app_file == $PROGRAM_NAME
