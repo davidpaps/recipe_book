@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 require 'sinatra/base'
-require './lib/recipe'
-require './lib/comment'
-require './lib/user'
-require './database_connection_setup'
 require 'sinatra/flash'
+require './database_connection_setup'
+require './lib/comment'
+require './lib/recipe'
+require './lib/user'
 
 class RecipeBook < Sinatra::Base
   use Rack::MethodOverride

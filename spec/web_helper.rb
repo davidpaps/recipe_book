@@ -11,10 +11,16 @@ def add_recipes
 end
 
 def view_recipes
-  visit('/')
-  click_button('View Recipes')
+  visit('/recipes')
 end
 
 def create_user
   User.create('test@test.com', 'password')
+end
+
+def sign_in
+  visit('/sessions/new')
+  fill_in(:email, with: 'test@test.com')
+  fill_in(:password, with: 'password')
+  click_button('Sign In')
 end

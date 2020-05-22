@@ -5,10 +5,7 @@ require 'web_helper'
 feature 'authentication' do
   scenario 'a user can sign in' do
     create_user
-    visit('/sessions/new')
-    fill_in(:email, with: 'test@test.com')
-    fill_in(:password, with: 'password')
-    click_button('Sign In')
+    sign_in
     expect(page).to have_content('Welcome test@test.com!')
   end
 
@@ -34,10 +31,7 @@ feature 'authentication' do
 
   scenario 'a user can sign out' do
     create_user
-    visit('/sessions/new')
-    fill_in(:email, with: 'test@test.com')
-    fill_in(:password, with: 'password')
-    click_button('Sign In')
+    sign_in
     click_button('Sign Out')
     expect(page).not_to have_content('Welcome test@example.com!')
     expect(page).to have_content('You have Signed Out!')
