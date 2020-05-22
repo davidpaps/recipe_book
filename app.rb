@@ -65,5 +65,17 @@ class RecipeBook < Sinatra::Base
     redirect('/recipes')
   end
 
+  get '/sessions/new'do
+    erb :'sessions/new'
+  end
+
+  post '/sessions' do
+    result = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{params[:email]}'")
+    user = User.new(result[0]['id'], result[0]['email'], result[0]['password'])
+
+    session[:user_id] = user.id
+    redirect('/recipes')
+  end
+
   run! if app_file == $PROGRAM_NAME
 end
