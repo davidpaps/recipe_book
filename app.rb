@@ -80,5 +80,11 @@ class RecipeBook < Sinatra::Base
     end
   end
 
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = 'You have Signed Out!'
+    redirect('/recipes')
+  end
+
   run! if app_file == $PROGRAM_NAME
 end

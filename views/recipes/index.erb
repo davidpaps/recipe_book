@@ -15,6 +15,9 @@
 <input type="submit" value="Return to Homepage" />
 </form>
 
+<form action="/sessions/destroy" method="post">
+  <input type="submit" value="Sign Out" />
+</form>
 
 <% flash.keys.each do |type| %>
   <div data-alert class="flash <%= type %> alert-box radius">
