@@ -24,7 +24,8 @@ class RecipeBook < Sinatra::Base
   end
 
   post '/recipes/add' do
-    unless Recipe.create(params[:url], params[:title])
+    unless (Recipe.create(params[:url], params[:title]) && 
+      flash[:notice] = 'Recipe Added!')
       flash[:notice] = 'You Must Submit a Valid URL!'
     end
     redirect('/recipes')
