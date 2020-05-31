@@ -33,3 +33,15 @@ body {
 .inner {
   display: inline-block;
 }
+
+.update {
+  text-align: center;
+  margin: 0 auto;
+  font-family: Libre Baskerville;
+}
+
+.comment {
+  text-align: center;
+  margin: 0 auto;
+  font-family: Libre Baskerville;
+}

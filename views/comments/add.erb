@@ -5,11 +5,14 @@
   <link type='text/css' rel='stylesheet' href='/css/index.css'>
 </head>
 <body>
-<h1>Add a Comment to a Recipe: </h1>
+<div class='comment'>
+<h1>Add a <b>Comment</b> to Recipe: </h1>
+<br>
 <form action="/recipes/<%= @recipe_id %>/comments" method="POST">
-  <input name="comment" type="text" />
+  <input name="comment" type="text" placeholder='Add a comment...'/>
   <input value="Submit Comment" type="submit" />
 </form>
+</div>
 
 </body>
 </html>
