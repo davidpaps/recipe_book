@@ -10,9 +10,8 @@ body {
   margin: 0 auto;
   font-family: Libre Baskerville;
 }
-
-.homepage-title {
+.signup {
+  text-align: center;
+  margin: 0 auto;
   font-family: Libre Baskerville;
-  font-weight: bolder;
-  font: italic;
 }
