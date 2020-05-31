@@ -7,20 +7,22 @@
 
 </head>
 <body>
-
-<h1>Recipe Book</h1>
-
+<div class='homepage'>
+<br>
+  <h1 style=font-size:100px><b><i>Recipe Book</b></i></h1>
+<br>
 <form action="/users/new" method="GET">
-  <h3> Sign up for Recipe Book!</h3>
+  <h3> <b>Sign up</b> for Recipe Book!</h3>
   <input type='submit' value='Sign Up' />
 </form>
-
+<br>
 <form action="/sessions/new" method="GET">
-  <h3> Already have an account - Sign in!</h3>
+  <h3> Already have an account - <b>Sign in!</b></h3>
   <input type='submit' value='Sign In' />
 </form>
-
+<br>
  <h3><%= flash[:notice] %></h3>
-
+ <br>
+</div>
  </body>
 </html>

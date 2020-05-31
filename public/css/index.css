@@ -4,3 +4,15 @@ body {
   background-size: cover;
   height: 100%;
 }
+
+.homepage {
+  text-align: center;
+  margin: 0 auto;
+  font-family: Libre Baskerville;
+}
+
+.homepage-title {
+  font-family: Libre Baskerville;
+  font-weight: bolder;
+  font: italic;
+}
