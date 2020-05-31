@@ -10,8 +10,26 @@ body {
   margin: 0 auto;
   font-family: Libre Baskerville;
 }
+
 .signup {
   text-align: center;
   margin: 0 auto;
   font-family: Libre Baskerville;
+}
+
+.signin {
+  text-align: center;
+  margin: 0 auto;
+  font-family: Libre Baskerville;
+}
+
+.recipes {
+  text-align: center;
+  margin: 0 auto;
+  font-family: Libre Baskerville;
+  width: 100%;
+}
+
+.inner {
+  display: inline-block;
 }

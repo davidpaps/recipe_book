@@ -3,21 +3,17 @@
   <meta charset="utf-8">
   <title></title>
   <link type='text/css' rel='stylesheet' href='/css/index.css'>
-   <link rel='stylesheet' href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
 </head>
 <body>
-
-
+<div class='recipes'>
 <% if @user %>
   <h1>Welcome <%= @user.email %>!</h1>
 <% end %>
-
-<h3><%= flash[:notice] %></h3>
-<br>
 <form action="/sessions/destroy" method="post">
   <input type="submit" value="Sign Out" />
 </form>
+<br>
+<h3><%= flash[:notice] %></h3>
 <br>
 <h3>Add a Recipe:</h3>
 <form action="/recipes/add" method="POST">
@@ -30,24 +26,24 @@
    <a href="<%= recipe.url %>" >
     <%= recipe.title %></a>
     <br>
-    <ul>
     <% recipe.comments.each do |comment| %>
-    <li><%= comment.description %></li>
+    <li><b><%= comment.description %></b></li>
     <% end %>
-    </ul>
-    <form action="/recipes/<%= recipe.id %>/comments/new" method="get">
-      <input type="submit" value="Add a Comment" id="comment<%= recipe.title %>"/>
+    <div class="inner"><form action="/recipes/<%= recipe.id %>/comments/new" method="get">
+      <input type="submit" value="Add a Comment" id="comment<%= recipe.title %>"/></div>
     </form>   
-
-    <form action="/recipes/<%=recipe.id%>/update" method='get'>
-        <input type="submit" value="Update <%=recipe.title%>" id="update<%= recipe.title %>" />
+<br>
+   <div class="inner"> <form action="/recipes/<%=recipe.id%>/update" method='get'>
+        <input type="submit" value="Update <%=recipe.title%>" id="update<%= recipe.title %>" /></div>
     </form>
-
-    <form action="/recipes/<%= recipe.id %>" method="post">
+<br>
+   <div class="inner"> <form action="/recipes/<%= recipe.id %>" method="post">
       <input type='hidden' name='_method' value='DELETE'/>
-      <input type="submit" value="Delete <%=recipe.title%>" id="delete<%= recipe.title %>" />
+      <input type="submit" value="Delete <%=recipe.title%>" id="delete<%= recipe.title %>" /></div>
+      <br>
     </form>   
+    <br>
 <% end %>
-
+</div>
 </body>
 </html>
