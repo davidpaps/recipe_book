@@ -127,3 +127,18 @@ rspec
 This will display 32 passing tests with 100% coverage. These tests will run on the Test Environment, another `bookmark-manager-test' Database will need to be set up with the same tables in order to run the tests.
 
 ---
+
+<table>
+  <tr>
+     <td>Homepage</td>
+      <td>Add a Recipe</td>
+      <td>Add a Comment</td>
+  </tr>
+  <tr>
+    <td valign="top"><img src='./public/images/homepage.png' width="3000"/></td>
+    <td valign="top"><img src='./public/images/add_recipe.png' width="3000"/></td>
+     <td valign="top"><img src='./public/images/add_comment.png' width="3000"/></td>
+  </tr>
+ </table>
+
+---
