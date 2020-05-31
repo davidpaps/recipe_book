@@ -5,6 +5,9 @@ body {
   height: 100%;
 }
 
+.title {
+  color: rgb(87, 81, 81);
+}
 .homepage {
   text-align: center;
   margin: 0 auto;
@@ -44,4 +47,38 @@ body {
   text-align: center;
   margin: 0 auto;
   font-family: Libre Baskerville;
+}
+
+input[type="submit"] {
+  padding: 5px 15px;
+  background: rgb(142, 182, 192);
+  border: 0 none;
+  cursor: pointer;
+  -webkit-border-radius: 5px;
+}
+
+input[type="text"] {
+  padding: 5px;
+  border: 2px solid #ccc;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+a:link,
+a:visited {
+  background-color: #72e0c5;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+a:hover,
+a:active {
+  background-color: #4e9482;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
 }
